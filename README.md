@@ -36,9 +36,12 @@ Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überw
 - 🤖 **KI-Objekterkennung** mit YOLOv8 für Vogelerkennung
 - 🌐 **Remote-Steuerung** über SSH
 - 📁 **Automatische Dateiorganisation** nach Jahr/Woche
-- ⚙️ **Flexible Konfiguration** über Kommandozeilenparameter
+- ⚙️ **Flexible Konfiguration** über .env-Dateien
 - 📊 **Fortschrittsanzeige** während der Aufnahme
 - 🔄 **Automatische Video-/Audio-Synchronisation**
+- 📱 **YouTube-Integration** mit QR-Codes für mobile Nutzer
+- 🔧 **Einfache Installation** mit requirements.txt
+- ✅ **Automatische Konfigurationsvalidierung**
 
 ## 🛠️ Voraussetzungen
 
@@ -54,11 +57,26 @@ Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überw
 
 ### Python-Abhängigkeiten
 ```bash
-pip install paramiko scp tqdm
+pip install -r requirements.txt
+```
+
+**Oder manuell:**
+```bash
+pip install paramiko scp tqdm python-dotenv qrcode[pil]
 ```
 
 ### Konfiguration laden
-Die Skripte laden automatisch Konfigurationsdaten aus Umgebungsvariablen oder der `.env`-Datei. Stellen Sie sicher, dass Sie die `.env`-Datei entsprechend dem [Konfigurationsabschnitt](#%EF%B8%8F-ssh-konfiguration) eingerichtet haben.
+Die Skripte laden automatisch Konfigurationsdaten aus der `.env`-Datei:
+```bash
+# 1. Kopieren Sie die Beispiel-Konfiguration
+cp python-skripte/.env.example python-skripte/.env
+
+# 2. Bearbeiten Sie die .env-Datei mit Ihren Daten  
+nano python-skripte/.env
+
+# 3. Testen Sie die Konfiguration
+python python-skripte/config.py
+```
 
 ## 📂 Projektstruktur
 
@@ -67,21 +85,59 @@ vogel-kamera-linux/
 ├── README.md
 ├── LICENSE
 ├── CHANGELOG.md                                                    # Versionshistorie
+├── requirements.txt                                                # Python-Abhängigkeiten
 ├── .gitignore
+├── assets/                                                         # QR-Codes & Medien
+│   ├── qr-youtube-channel.png                                    # YouTube-Kanal QR-Code
+│   ├── qr-playlists.png                                          # Playlists QR-Code  
+│   ├── qr-subscribe.png                                          # Abonnieren QR-Code
+│   ├── generate_qr_codes.py                                      # QR-Code Generator
+│   └── QR-CODE-ANLEITUNG.md                                      # QR-Code Dokumentation
 └── python-skripte/
     ├── config.py                                                      # Konfigurationssystem
     ├── __version__.py                                                  # Versionsverwaltung
     ├── .env.example                                                    # Konfigurationsvorlage
+    ├── .env                                                            # Ihre Konfiguration (nicht im Git)
     ├── ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py  # Hauptskript mit KI
     ├── ai-had-audio-remote-param-vogel-libcamera-single.py            # Audio-Aufnahme
     └── ai-had-kamera-remote-param-vogel-libcamera-zeitlupe.py         # Zeitlupe-Aufnahmen
 ```
 
-## 🚀 Verwendung
+## 🚀 Schnellstart
 
-### Version anzeigen
+### 1. Installation
+```bash
+# Repository klonen
+git clone https://github.com/roimme65/vogel-kamera-linux.git
+cd vogel-kamera-linux
+
+# Abhängigkeiten installieren
+pip install -r requirements.txt
+```
+
+### 2. Konfiguration
+```bash
+# Konfiguration kopieren und anpassen
+cp python-skripte/.env.example python-skripte/.env
+nano python-skripte/.env
+
+# Konfiguration testen
+python python-skripte/config.py
+```
+
+### 3. Erste Aufnahme
+```bash
+# Audio-Test (1 Minute)
+python python-skripte/ai-had-audio-remote-param-vogel-libcamera-single.py --duration 1
+
+# Video mit KI (1 Minute, HD)
+python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --duration 1 --width 1920 --height 1080
+```
+
+### 4. Version prüfen
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
+# Ausgabe: Vogel-Kamera-Linux v1.1.1
 ```
 
 ### Basis-Aufnahme
@@ -182,6 +238,15 @@ Das Hauptskript nutzt YOLOv8 für die Echtzeit-Objekterkennung:
 
 ## 🔧 Problembehandlung
 
+### Konfigurationsprobleme
+```bash
+# Konfiguration überprüfen
+python python-skripte/config.py
+
+# Fehlermeldung: "Hostname nicht konfiguriert"
+# → Bearbeiten Sie python-skripte/.env mit Ihren Werten
+```
+
 ### Audio-Gerät nicht gefunden
 ```bash
 # Auf dem Raspberry Pi prüfen:
@@ -195,6 +260,18 @@ ssh -i ~/.ssh/id_rsa_rpi pi@raspberrypi-5-ai-had
 
 # Konfiguration validieren:
 python python-skripte/config.py
+
+# .env-Datei überprüfen:
+cat python-skripte/.env
+```
+
+### Dependency-Probleme
+```bash
+# Alle Abhängigkeiten neu installieren
+pip install -r requirements.txt
+
+# Einzelne Pakete installieren  
+pip install paramiko scp tqdm python-dotenv qrcode[pil]
 ```
 
 ### Kamera-Probleme
@@ -222,8 +299,20 @@ Bei Fragen oder Problemen bitte ein Issue erstellen.
 
 Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
+### 🆕 Neu in v1.1.1 (23. September 2025)
+- 🔧 **Kritischer Bugfix:** .env-Dateien werden jetzt korrekt geladen
+- 📦 **requirements.txt:** Einfache Installation aller Abhängigkeiten  
+- ✅ **Verbesserte Konfiguration:** Automatische Validierung funktioniert
+- 🛠️ **Stabilität:** Alle Skripte getestet und funktionsfähig
+- 📚 **Dokumentation:** Erweiterte Setup-Anweisungen
+
+### 🎬 Neu in v1.1.0
+- YouTube-Integration mit QR-Codes
+- Zentrales Konfigurationssystem  
+- Sicherheitsverbesserungen (keine hardcodierten Daten)
+
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.1.0
+- **Aktuelle Version:** v1.1.1
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases)
