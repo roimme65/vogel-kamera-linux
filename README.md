@@ -34,19 +34,32 @@ Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überw
 pip install paramiko scp tqdm
 ```
 
+### Konfiguration laden
+Die Skripte laden automatisch Konfigurationsdaten aus Umgebungsvariablen oder der `.env`-Datei. Stellen Sie sicher, dass Sie die `.env`-Datei entsprechend dem [Konfigurationsabschnitt](#%EF%B8%8F-ssh-konfiguration) eingerichtet haben.
+
 ## 📂 Projektstruktur
 
 ```
 vogel-kamera-linux/
 ├── README.md
 ├── LICENSE
+├── CHANGELOG.md                                                    # Versionshistorie
+├── .gitignore
 └── python-skripte/
+    ├── config.py                                                      # Konfigurationssystem
+    ├── __version__.py                                                  # Versionsverwaltung
+    ├── .env.example                                                    # Konfigurationsvorlage
     ├── ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py  # Hauptskript mit KI
     ├── ai-had-audio-remote-param-vogel-libcamera-single.py            # Audio-Aufnahme
     └── ai-had-kamera-remote-param-vogel-libcamera-zeitlupe.py         # Zeitlupe-Aufnahmen
 ```
 
 ## 🚀 Verwendung
+
+### Version anzeigen
+```bash
+python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
+```
 
 ### Basis-Aufnahme
 ```bash
@@ -87,17 +100,36 @@ python ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py \
 
 ## ⚙️ SSH-Konfiguration
 
-1. **SSH-Schlüssel generieren** (falls noch nicht vorhanden):
+### 1. Umgebungsvariablen konfigurieren
 ```bash
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_ai-had
+# Kopieren Sie die Beispiel-Konfiguration
+cp python-skripte/.env.example python-skripte/.env
+
+# Bearbeiten Sie die .env-Datei mit Ihren Daten
+nano python-skripte/.env
 ```
 
-2. **Öffentlichen Schlüssel auf Raspberry Pi kopieren**:
+Beispiel `.env`-Datei:
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa_ai-had.pub roimme@raspberrypi-5-ai-had
+RPI_HOSTNAME=raspberrypi-5-ai-had
+RPI_USERNAME=pi
+SSH_KEY_PATH=~/.ssh/id_rsa_rpi
+BASE_VIDEO_PATH=~/Videos/Vogelhaus
+REMOTE_VIDEO_PATH=/home/pi/Videos/Vogelhaus
+REMOTE_AUDIO_PATH=/home/pi/Audio/Kamerawagen
 ```
 
-3. **Hostname in /etc/hosts eintragen**:
+### 2. **SSH-Schlüssel generieren** (falls noch nicht vorhanden):
+```bash
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_rpi
+```
+
+### 3. **Öffentlichen Schlüssel auf Raspberry Pi kopieren**:
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa_rpi.pub pi@raspberrypi-5-ai-had
+```
+
+### 4. **Hostname in /etc/hosts eintragen** (optional):
 ```bash
 echo "192.168.1.XXX raspberrypi-5-ai-had" | sudo tee -a /etc/hosts
 ```
@@ -106,12 +138,14 @@ echo "192.168.1.XXX raspberrypi-5-ai-had" | sudo tee -a /etc/hosts
 
 Die aufgenommenen Videos werden automatisch organisiert:
 ```
-~/Videos/Vogelhaus/AI-HAD/
-└── 2025/
-    └── 38/  # Kalenderwoche
-        └── Montag__2025-09-23__14-30-15/
-            ├── Montag__2025-09-23__14-30-15__4096x2160.mp4
-            └── (temporäre Zwischendateien werden automatisch gelöscht)
+~/Videos/Vogelhaus/
+├── AI-HAD/        # Hauptskript mit KI-Erkennung
+├── Audio/         # Reine Audio-Aufnahmen  
+└── Zeitlupe/      # Slow-Motion Videos
+    └── 2025/
+        └── 38/  # Kalenderwoche
+            └── Montag__2025-09-23__14-30-15/
+                └── Montag__2025-09-23__14-30-15__4096x2160.mp4
 ```
 
 ## 🤖 KI-Objekterkennung
@@ -132,7 +166,10 @@ arecord -l
 ### SSH-Verbindungsprobleme
 ```bash
 # Verbindung testen:
-ssh -i ~/.ssh/id_rsa_ai-had roimme@raspberrypi-5-ai-had
+ssh -i ~/.ssh/id_rsa_rpi pi@raspberrypi-5-ai-had
+
+# Konfiguration validieren:
+python python-skripte/config.py
 ```
 
 ### Kamera-Probleme
@@ -155,3 +192,13 @@ Siehe [LICENSE](LICENSE) Datei für Details.
 ## 📞 Support
 
 Bei Fragen oder Problemen bitte ein Issue erstellen.
+
+## 📋 Changelog
+
+Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
+
+## 🔖 Versionen
+
+- **Aktuelle Version:** v1.0.0
+- **Entwicklungszweig:** `devel`
+- **Stabile Releases:** [GitHub Releases](../../releases)

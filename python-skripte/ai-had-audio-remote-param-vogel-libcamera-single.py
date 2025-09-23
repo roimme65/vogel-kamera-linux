@@ -9,6 +9,8 @@ import os
 import signal
 import argparse
 from tqdm import tqdm
+from config import config
+from __version__ import __version__, get_version_info
 
 # Setze die Locale auf Deutsch
 locale.setlocale(locale.LC_TIME, 'de_DE.UTF-8')
@@ -19,6 +21,7 @@ parser = argparse.ArgumentParser(
     Beispiel für einen Aufruf:
     python audio-remote-param-vogel-libcamera-single.py --duration 10'''
 )
+parser.add_argument('--version', action='version', version=f'Vogel-Kamera-Linux v{__version__}')
 parser.add_argument('--duration', type=int, required=True, help='Aufnahmedauer in Minuten')
 args = parser.parse_args()
 
@@ -27,15 +30,21 @@ timestamp = datetime.now().strftime("%A__%Y-%m-%d__%H-%M-%S")
 year = datetime.now().year
 week_number = datetime.now().isocalendar()[1]  # Wochennummer des aktuellen Datums
 
-# SSH-Verbindungsdetails für den Remote-Host
-remote_host = {
-    'hostname': 'raspberrypi-5-ai-had',
-    'username': 'roimme',
-    'key_filename': '/home/imme/.ssh/id_rsa_ai-had'  # Pfad zum privaten SSH-Schlüssel
-}
+# SSH-Verbindungsdetails für den Remote-Host (aus Konfiguration)
+remote_host = config.get_remote_host_config()
 
-# Definiere den Pfad
-base_path = f"/home/imme/Videos/Vogelhaus/Audio/{year}/{week_number}/{timestamp}"
+# Konfiguration validieren
+config_errors = config.validate_config()
+if config_errors:
+    print("⚠️ Konfigurationsprobleme gefunden:")
+    for error in config_errors:
+        print(f"  - {error}")
+    print("\nBitte konfigurieren Sie das System entsprechend der README.md")
+    print("Kopieren Sie .env.example zu .env und passen Sie die Werte an.")
+    exit(1)
+
+# Definiere den Pfad (aus Konfiguration)
+base_path = config.get_video_path(year, week_number, timestamp, "Audio")
 
 # Erstelle das Verzeichnis, falls es nicht existiert
 os.makedirs(base_path, exist_ok=True)
@@ -99,9 +108,10 @@ print(f"Verwendetes Audio-Gerät auf dem Remote-Host: {audio_device}")
 
 # Befehl zum Ausführen auf dem Remote-Host (nur Audioaufnahme)
 def get_remote_audio_command():
+    remote_path = config.get_remote_audio_path(year, timestamp)
     return f"""
-    mkdir -p /home/pi/Audio/Kamerawagen/{year}/{timestamp} && \
-    cd /home/pi/Audio/Kamerawagen/{year}/{timestamp} && \
+    mkdir -p {remote_path} && \
+    cd {remote_path} && \
     arecord -D {audio_device} -f S16_LE -r 44100 -c 1 -t wav -d {recording_duration_s} audio_{timestamp}.wav
     """
 
@@ -147,7 +157,8 @@ def copy_files_from_remote():
         scp = create_scp_client(ssh)
         
         # Kopiere die Audiodatei mit Zeitstempel
-        scp.get(f"/home/pi/Audio/Kamerawagen/{year}/{timestamp}/audio_{timestamp}.wav", base_path)
+        remote_path = config.get_remote_audio_path(year, timestamp)
+        scp.get(f"{remote_path}/audio_{timestamp}.wav", base_path)
         
         scp.close()
         ssh.close()
