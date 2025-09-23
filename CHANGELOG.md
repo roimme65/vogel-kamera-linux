@@ -12,6 +12,25 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
+## [1.1.2] - 2025-09-23
+### Hinzugefügt
+- **🔧 GitHub Issue Templates:** Deutsche Bug Report und Feature Request Templates
+- **📋 Repository-spezifische Anpassungen:** Hardware-spezifische Abschnitte für Pi/Kamera
+- **🤝 Community-Engagement:** Strukturierte Nutzen-Bewertung und Akzeptanzkriterien
+- **📁 .gitignore Update:** Wiki-Content Verzeichnis ausgeschlossen für besseres Repository-Management
+
+### Verbessert
+- **📝 Issue Template Struktur:** Emoji-Icons und bessere Kategorisierung
+- **🎯 Feature Request Process:** Priorisierung und Implementierungs-Bereitschaft
+- **🐛 Bug Report Qualität:** Detaillierte System-Informationen und Reproduktionsschritte
+- **🌍 Lokalisierung:** Vollständige deutsche Übersetzung aller Templates
+
+### Technisch
+- Neue .github/ISSUE_TEMPLATE/ Struktur implementiert
+- Repository-spezifische Anpassungen für Vogel-Kamera-Linux
+- Automatische Label-Zuweisung für Issues
+- Verbesserte Community-Beitrag-Workflows
+
 ## [1.1.1] - 2025-09-23
 ### Behoben
 - **🔧 Kritischer Bugfix:** .env-Datei wird jetzt korrekt geladen
