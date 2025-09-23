@@ -12,6 +12,44 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
+## [1.1.0] - 2025-09-23
+### Hinzugefügt
+- **🎬 YouTube-Integration:**
+  - YouTube-Kanal Sektion in README.md
+  - QR-Code für mobilen Zugriff auf Videos
+  - Video-Tutorial Verweise in der Dokumentation
+  - Automatischer QR-Code Generator (`generate_qr_codes.py`)
+
+- **📱 QR-Code System:**
+  - Hauptkanal QR-Code (`qr-youtube-channel.png`)
+  - Playlists QR-Code (`qr-playlists.png`) 
+  - Abonnieren QR-Code (`qr-subscribe.png`)
+  - QR-Code Anleitung (`QR-CODE-ANLEITUNG.md`)
+
+- **🔧 Konfigurationsverbesserungen:**
+  - Zentrales Konfigurationssystem implementiert
+  - Sichere `.env`-basierte Konfiguration
+  - Automatische Konfigurationsvalidierung
+  - Entfernung aller hardcodierten persönlichen Daten
+
+- **📚 Dokumentation:**
+  - Erweiterte README.md mit YouTube-Integration
+  - Vollständige Projektstruktur dokumentiert
+  - Video-Tutorial Verweise hinzugefügt
+  - Konfigurationsanleitung verbessert
+
+### Geändert
+- Alle Python-Skripte verwenden jetzt das zentrale Konfigurationssystem
+- SSH-Verbindungsdetails über Umgebungsvariablen konfigurierbar
+- Pfade für Video/Audio-Speicherung konfigurierbar
+- .gitignore erweitert um `.venv/` und weitere Python-Dateien
+
+### Sicherheit
+- **🔒 Sichere Veröffentlichung:** Alle persönlichen Daten entfernt
+- Konfiguration über `.env`-Dateien (nicht im Repository)
+- SSH-Schlüssel-Pfade konfigurierbar
+- Validierung warnt vor fehlender Konfiguration
+
 ## [1.0.0] - 2025-09-23
 ### Hinzugefügt
 - **Hauptfunktionalitäten:**

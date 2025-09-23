@@ -3,7 +3,7 @@
 Versionsinformationen für Vogel-Kamera-Linux
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "roimme65"
 __description__ = "Ferngesteuerte Kameraüberwachung für Vogelhäuser mit KI-gestützter Objekterkennung"
 __license__ = "MIT"
@@ -28,6 +28,11 @@ MODULES = {
         "version": __version__,
         "description": "Zeitlupe-Aufnahmen für detaillierte Analyse",
         "features": ["120fps+", "Zeitlupe", "Flexible Auflösung"]
+    },
+    "generate_qr_codes.py": {
+        "version": __version__,
+        "description": "QR-Code Generator für YouTube-Integration",
+        "features": ["YouTube QR-Codes", "Mobile Zugriff", "Automatisierung"]
     }
 }
 
