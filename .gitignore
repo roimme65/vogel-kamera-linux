@@ -84,3 +84,6 @@ Thumbs.db
 id_rsa*
 *.pem
 *.key
+
+# Wiki-Content (für lokale Bearbeitung, nicht für Git)
+wiki-content/
