@@ -112,7 +112,7 @@ vogel-kamera-linux/
 ### 1. Installation
 ```bash
 # Repository klonen
-git clone https://github.com/roimme65/vogel-kamera-linux.git
+git clone https://github.com/your-github-username/vogel-kamera-linux.git
 cd vogel-kamera-linux
 
 # Abhängigkeiten installieren
@@ -194,7 +194,7 @@ nano python-skripte/.env
 
 Beispiel `.env`-Datei:
 ```bash
-RPI_HOSTNAME=raspberrypi-5-ai-had
+RPI_HOSTNAME=your-raspberry-pi-hostname
 RPI_USERNAME=pi
 SSH_KEY_PATH=~/.ssh/id_rsa_rpi
 BASE_VIDEO_PATH=~/Videos/Vogelhaus
@@ -211,12 +211,12 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_rpi
 
 ### 3. **Öffentlichen Schlüssel auf Raspberry Pi kopieren**:
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa_rpi.pub pi@raspberrypi-5-ai-had
+ssh-copy-id -i ~/.ssh/id_rsa_rpi.pub pi@your-raspberry-pi-hostname
 ```
 
 ### 4. **Hostname in /etc/hosts eintragen** (optional):
 ```bash
-echo "192.168.1.XXX raspberrypi-5-ai-had" | sudo tee -a /etc/hosts
+echo "192.168.1.XXX your-raspberry-pi-hostname" | sudo tee -a /etc/hosts
 ```
 
 ## 📁 Dateiorganisation
@@ -260,7 +260,7 @@ arecord -l
 ### SSH-Verbindungsprobleme
 ```bash
 # Verbindung testen:
-ssh -i ~/.ssh/id_rsa_rpi pi@raspberrypi-5-ai-had
+ssh -i ~/.ssh/id_rsa_rpi pi@your-raspberry-pi-hostname
 
 # Konfiguration validieren:
 python python-skripte/config.py
