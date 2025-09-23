@@ -1,10 +1,33 @@
 # 🐦 Vogel-Kamera-Linux
 
-Ferngesteuerte Kameraüberwachung für Vogelhäuser mit KI-gestützter Objekterkennung.
+Ferngesteuerte Kameraüberwachung für Vogelhäuser mit ### Basis-Aufnahme
+```bash
+python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py \
+    --duration 5 \
+    --width 1920 \
+    --height 1080
+```
+
+> 📺 **Video-Tutorial verfügbar:** [Setup & Erste Aufnahme](https://www.youtube.com/@vogel-kamera-linux) auf unserem YouTube-Kanalützter Objekterkennung.
 
 ## 📖 Überblick
 
 Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überwachung von Vogelhäusern. Es bietet hochauflösende Video- und Audioaufnahmen mit KI-basierter Objekterkennung (YOLOv8) und automatischer Dateiorganisation.
+
+### 🎬 YouTube-Kanal & Video-Tutorials
+
+[![YouTube Channel](https://img.shields.io/badge/📺_YouTube_Kanal-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@vogel-kamera-linux)
+
+**📱 QR-Code für mobilen Zugriff:**
+
+![YouTube QR Code](assets/qr-youtube-channel.png)
+
+| Video-Tutorial | Beschreibung |
+|----------------|--------------|
+| 🔧 **Setup & Installation** | Komplette Einrichtung Schritt-für-Schritt |
+| 🐦 **Live Vogelerkennung** | KI-Objekterkennung in Aktion |
+| ⚡ **Zeitlupe-Aufnahmen** | 120fps Slow-Motion Beispiele |
+| 🛠️ **Troubleshooting** | Häufige Probleme und Lösungen |
 
 ## ✨ Features
 
@@ -119,6 +142,8 @@ REMOTE_VIDEO_PATH=/home/pi/Videos/Vogelhaus
 REMOTE_AUDIO_PATH=/home/pi/Audio/Kamerawagen
 ```
 
+> 📺 **Video-Tutorial:** [Konfiguration & SSH-Setup](https://www.youtube.com/@vogel-kamera-linux) - Komplette Einrichtungsanleitung
+
 ### 2. **SSH-Schlüssel generieren** (falls noch nicht vorhanden):
 ```bash
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_rpi
@@ -199,6 +224,6 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.0.0
+- **Aktuelle Version:** v1.1.0
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases)
