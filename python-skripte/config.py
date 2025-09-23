@@ -5,11 +5,17 @@ Konfigurationssystem für Vogel-Kamera-Linux
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 class Config:
     """Zentrale Konfigurationsklasse für alle Skripte"""
     
     def __init__(self):
+        # Lade .env-Datei wenn vorhanden
+        env_path = Path(__file__).parent / '.env'
+        if env_path.exists():
+            load_dotenv(env_path)
+            
         # Standard-Werte
         self.defaults = {
             'hostname': 'your-raspberry-pi-hostname',
