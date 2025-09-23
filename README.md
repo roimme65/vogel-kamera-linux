@@ -1,6 +1,8 @@
 # 🐦 Vogel-Kamera-Linux
 
-Ferngesteuerte Kameraüberwachung für Vogelhäuser mit ### Basis-Aufnahme
+Ferngesteuerte Kameraüberwachung für Vogelhäuser mit KI-gestützter Objekterkennung.
+
+### Basis-Aufnahme
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py \
     --duration 5 \
@@ -8,13 +10,13 @@ python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul
     --height 1080
 ```
 
-> 📺 **Video-Tutorial verfügbar:** [Setup & Erste Aufnahme](https://www.youtube.com/@vogel-kamera-linux) auf unserem YouTube-Kanalützter Objekterkennung.
+> 📺 **Beispielaufnahmen verfügbar:** [Vogel-Kamera Aufnahmen](https://www.youtube.com/@vogel-kamera-linux) - Echte Aufnahmen mit der Kamera
 
 ## 📖 Überblick
 
 Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überwachung von Vogelhäusern. Es bietet hochauflösende Video- und Audioaufnahmen mit KI-basierter Objekterkennung (YOLOv8) und automatischer Dateiorganisation.
 
-### 🎬 YouTube-Kanal & Video-Tutorials
+### 🎬 YouTube-Kanal & Beispielaufnahmen
 
 [![YouTube Channel](https://img.shields.io/badge/📺_YouTube_Kanal-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@vogel-kamera-linux)
 
@@ -22,12 +24,14 @@ Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überw
 
 ![YouTube QR Code](assets/qr-youtube-channel.png)
 
-| Video-Tutorial | Beschreibung |
-|----------------|--------------|
-| 🔧 **Setup & Installation** | Komplette Einrichtung Schritt-für-Schritt |
-| 🐦 **Live Vogelerkennung** | KI-Objekterkennung in Aktion |
+| Beispielaufnahmen | Beschreibung |
+|-------------------|--------------|
+| 🐦 **Vogelerkennung Live** | Echte KI-Objekterkennung in Aktion |
 | ⚡ **Zeitlupe-Aufnahmen** | 120fps Slow-Motion Beispiele |
-| 🛠️ **Troubleshooting** | Häufige Probleme und Lösungen |
+| 🎥 **4K Aufnahmen** | Hochauflösende Vogelhaus-Videos |
+| 🎵 **Audio-Aufnahmen** | Synchrone Vogel-Audio Beispiele |
+
+> 💡 **Hinweis:** Tutorial-Videos sind in Planung - aktuell zeigen wir echte Aufnahmen unserer Vogel-Kamera!
 
 ## ✨ Features
 
@@ -198,7 +202,7 @@ REMOTE_VIDEO_PATH=/home/pi/Videos/Vogelhaus
 REMOTE_AUDIO_PATH=/home/pi/Audio/Kamerawagen
 ```
 
-> 📺 **Video-Tutorial:** [Konfiguration & SSH-Setup](https://www.youtube.com/@vogel-kamera-linux) - Komplette Einrichtungsanleitung
+> 📺 **Beispielaufnahmen:** [Vogel-Kamera Setup](https://www.youtube.com/@vogel-kamera-linux) - Siehe die Kamera in Aktion
 
 ### 2. **SSH-Schlüssel generieren** (falls noch nicht vorhanden):
 ```bash
