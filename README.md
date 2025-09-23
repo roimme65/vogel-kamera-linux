@@ -1,5 +1,10 @@
 # 🐦 Vogel-Kamera-Linux
 
+[![Version](https://img.shields.io/badge/Version-v1.1.2-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.2)
+[![GitHub Issues](https://img.shields.io/github/issues/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/issues)
+[![GitHub PRs](https://img.shields.io/github/issues-pr/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/pulls)
+[![License](https://img.shields.io/github/license/roimme65/vogel-kamera-linux)](LICENSE)
+
 Ferngesteuerte Kameraüberwachung für Vogelhäuser mit KI-gestützter Objekterkennung.
 
 ### Basis-Aufnahme
