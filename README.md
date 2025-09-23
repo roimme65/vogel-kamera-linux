@@ -112,7 +112,7 @@ vogel-kamera-linux/
 ### 1. Installation
 ```bash
 # Repository klonen
-git clone https://github.com/your-github-username/vogel-kamera-linux.git
+git clone https://github.com/roimme65/vogel-kamera-linux.git
 cd vogel-kamera-linux
 
 # Abhängigkeiten installieren
