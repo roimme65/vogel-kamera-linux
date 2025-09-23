@@ -12,6 +12,23 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
+## [1.1.1] - 2025-09-23
+### Behoben
+- **🔧 Kritischer Bugfix:** .env-Datei wird jetzt korrekt geladen
+- **📦 Dependencies:** Fehlende python-dotenv Abhängigkeit hinzugefügt
+- **🛠️ Konfigurationssystem:** Vollständig funktionsfähig gemacht
+- **✅ Skript-Funktionalität:** Alle Skripte getestet und lauffähig
+
+### Hinzugefügt
+- **📦 requirements.txt** für einfache Dependency-Installation
+- **🔧 Verbesserte Installationsanweisungen** in README.md
+- **✅ Konfigurationsvalidierung** funktioniert korrekt
+
+### Technisch
+- python-dotenv>=1.0.0 als neue Abhängigkeit
+- Automatisches Laden der .env-Datei beim Import
+- Verbesserte Fehlerbehandlung im Konfigurationssystem
+
 ## [1.1.0] - 2025-09-23
 ### Hinzugefügt
 - **🎬 YouTube-Integration:**
