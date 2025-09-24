@@ -3,23 +3,24 @@
 Version information for Vogel-Kamera-Linux
 """
 
-__version__ = "1.1.2"
-__version_info__ = (1, 1, 2)
+__version__ = "1.1.3"
+__version_info__ = (1, 1, 3)
 
 # Release Information
-RELEASE_NAME = "GitHub Issue Templates Update"
-RELEASE_DATE = "2025-09-23"
+RELEASE_NAME = "GitHub Discussions Integration"
+RELEASE_DATE = "2025-09-24"
 RELEASE_TYPE = "patch"  # major, minor, patch
 
 # Build Information
-BUILD_NUMBER = "20250923"
-GIT_TAG = "v1.1.2"
+BUILD_NUMBER = "20250924"
+GIT_TAG = "v1.1.3"
 
 # Feature Flags
 FEATURES = {
     "ai_detection": True,
     "audio_recording": True,
     "slow_motion": True,
+    "github_discussions": True,  # New in v1.1.3
     "github_templates": True,  # New in v1.1.2
     "wiki_documentation": True,  # New in v1.1.1
     "web_interface": False,  # Planned for v1.3.0

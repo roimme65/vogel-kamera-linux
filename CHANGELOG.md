@@ -12,6 +12,24 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
+## [1.1.3] - 2025-09-24
+### Hinzugefügt
+- **💬 GitHub Discussions Integration:** Community-Diskussionsbereich aktiviert
+- **🤝 Community & Diskussionen Sektion:** Neue README-Sektion für Nutzer-Interaktion
+- **📋 Erweiterte Support-Optionen:** Discussions für Fragen, Issues für Bugs
+- **🎯 Strukturierte Community-Bereiche:** Q&A, Ideen, Hardware-Tipps, Aufnahmen teilen
+
+### Verbessert
+- **📞 Support-Bereich:** Klare Trennung zwischen Discussions und Issues
+- **🔗 Navigation:** Direkte Links zu Community-Features
+- **🏷️ Badge-System:** GitHub Discussions Badge hinzugefügt
+- **📖 Dokumentation:** Deutsche Übersetzung der Discussions-Willkommensnachricht
+
+### Technisch
+- README.md erweitert um Community & Diskussionen Sektion
+- Support-Bereich reorganisiert für bessere Nutzerführung
+- Version auf v1.1.3 aktualisiert in allen relevanten Dateien
+
 ## [1.1.2] - 2025-09-23
 ### Hinzugefügt
 - **🔧 GitHub Issue Templates:** Deutsche Bug Report und Feature Request Templates
