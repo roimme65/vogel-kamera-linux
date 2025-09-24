@@ -1,6 +1,6 @@
 # 🐦 Vogel-Kamera-Linux
 
-[![Version](https://img.shields.io/badge/Version-v1.1.2-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.2)
+[![Version](https://img.shields.io/badge/Version-v1.1.3-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.3)
 [![GitHub Issues](https://img.shields.io/github/issues/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/issues)
 [![GitHub PRs](https://img.shields.io/github/issues-pr/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/pulls)
 [![License](https://img.shields.io/github/license/roimme65/vogel-kamera-linux)](LICENSE)
@@ -146,7 +146,7 @@ python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul
 ### 4. Version prüfen
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
-# Ausgabe: Vogel-Kamera-Linux v1.1.2
+# Ausgabe: Vogel-Kamera-Linux v1.1.3
 ```
 
 ### Basis-Aufnahme
@@ -300,9 +300,21 @@ Siehe [LICENSE](LICENSE) Datei für Details.
 3. Änderungen commiten
 4. Pull Request erstellen
 
-## 📞 Support
+## � Community & Diskussionen
 
-Bei Fragen oder Problemen bitte ein Issue erstellen.
+[![GitHub Discussions](https://img.shields.io/github/discussions/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/discussions)
+
+Tauschen Sie sich mit anderen Nutzern aus:
+- 🙋 **Fragen stellen** zu Installation und Konfiguration  
+- 💡 **Ideen teilen** für neue Features
+- 📸 **Aufnahmen zeigen** aus Ihrem Vogelhaus
+- 🔧 **Hardware-Tipps** diskutieren
+
+## �📞 Support
+
+Bei Fragen oder Problemen:
+- 💬 **Diskussionen starten** in [GitHub Discussions](https://github.com/roimme65/vogel-kamera-linux/discussions)
+- 🐛 **Bugs melden** über [GitHub Issues](https://github.com/roimme65/vogel-kamera-linux/issues)
 
 ## 📋 Changelog
 
@@ -323,6 +335,6 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.1.2
+- **Aktuelle Version:** v1.1.3
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases)
