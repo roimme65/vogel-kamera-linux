@@ -146,7 +146,7 @@ python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul
 ### 4. Version prüfen
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
-# Ausgabe: Vogel-Kamera-Linux v1.1.1
+# Ausgabe: Vogel-Kamera-Linux v1.1.2
 ```
 
 ### Basis-Aufnahme
@@ -308,12 +308,13 @@ Bei Fragen oder Problemen bitte ein Issue erstellen.
 
 Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
-### 🆕 Neu in v1.1.1 (23. September 2025)
-- 🔧 **Kritischer Bugfix:** .env-Dateien werden jetzt korrekt geladen
-- 📦 **requirements.txt:** Einfache Installation aller Abhängigkeiten  
-- ✅ **Verbesserte Konfiguration:** Automatische Validierung funktioniert
-- 🛠️ **Stabilität:** Alle Skripte getestet und funktionsfähig
-- 📚 **Dokumentation:** Erweiterte Setup-Anweisungen
+### 🆕 Neu in v1.1.2 (23. September 2025)
+- 🔧 **GitHub Issue Templates:** Deutsche Bug Report und Feature Request Templates
+- � **Repository-Verbesserungen:** Hardware-spezifische Support-Abschnitte
+- 🤝 **Community-Engagement:** Strukturierte Nutzen-Bewertung und Akzeptanzkriterien
+- � **Security Policy:** Comprehensive SECURITY.md mit Vulnerability-Reporting
+- 📊 **Version-Tracking:** Programmatische Versionsinformationen (version.py)
+- � **Release-Dokumentation:** Vollständige Release Notes und CHANGELOG-Updates
 
 ### 🎬 Neu in v1.1.0
 - YouTube-Integration mit QR-Codes
@@ -322,6 +323,6 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.1.1
+- **Aktuelle Version:** v1.1.2
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases)
