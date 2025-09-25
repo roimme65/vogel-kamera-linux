@@ -337,4 +337,4 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 - **Aktuelle Version:** v1.1.3
 - **Entwicklungszweig:** `devel`
-- **Stabile Releases:** [GitHub Releases](../../releases)
+- **Stabile Releases:** [GitHub Releases](../../releases) | [Tags](../../tags)
