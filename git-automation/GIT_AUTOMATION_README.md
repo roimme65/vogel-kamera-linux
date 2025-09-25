@@ -43,19 +43,24 @@ python3 git_automation.py --update-secret ssh_passphrase
 
 ## 🎯 Verwendung
 
-### **Vollständige Synchronisation:**
+### **Git-Status anzeigen:**
 ```bash
-python3 git_automation.py --sync
+python3 git_automation.py --status
 ```
 
-### **Nur Branches synchronisieren:**
+### **Aktuellen Branch pushen:**
 ```bash
-python3 git_automation.py --branches
+python3 git_automation.py --push
 ```
 
-### **Nur Tags aktualisieren:**
+### **Alle Branches pushen:**
 ```bash
-python3 git_automation.py --tags
+python3 git_automation.py --push-all
+```
+
+### **Tag erstellen und pushen:**
+```bash
+python3 git_automation.py --tag v1.1.4
 ```
 
 ### **Committen mit Nachricht:**
@@ -63,9 +68,14 @@ python3 git_automation.py --tags
 python3 git_automation.py --commit "🔧 Feature: Neue Funktionalität hinzugefügt"
 ```
 
-### **Vollsync mit Commit:**
+### **Vollständiger Release-Workflow:**
 ```bash
-python3 git_automation.py --sync --commit "🎉 Release v1.1.4 - Neue Features"
+python3 git_automation.py --release v1.1.4
+```
+
+### **Nur lokale Operationen (ohne Push):**
+```bash
+python3 git_automation.py --commit "Test" --no-push
 ```
 
 ## 🔐 Sicherheit
@@ -78,9 +88,10 @@ git_automation.py      # Das Skript selbst
 ```
 
 ### **SSH-Agent Integration:**
-- Automatische SSH-Agent-Konfiguration
-- Passphrase-Handling über expect
-- Timeout-Schutz für lange Operationen
+- ✅ **Automatische SSH-Agent-Konfiguration** beim Start
+- ✅ **Passphrase-Handling** über pexpect (keine manuelle Eingabe!)
+- ✅ **Timeout-Schutz** für lange Operationen (5 Minuten)
+- ✅ **Drei Fallback-Methoden**: pexpect → SSH_ASKPASS → stdin
 
 ## ⚙️ Funktionen im Detail
 
@@ -152,17 +163,20 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 ## 📊 Beispiel-Workflow
 
 ```bash
-# 1. Neue Features entwickeln
-# ... Code-Änderungen ...
+# 1. Git-Status überprüfen
+python3 git_automation.py --status
 
-# 2. Automatisch committen und synchronisieren
-python3 git_automation.py --sync --commit "✨ Neue Feature: GitHub Discussions"
+# 2. Neue Features entwickeln und committen
+python3 git_automation.py --commit "✨ Neue Feature: GitHub Discussions"
 
-# 3. Tags für neue Version aktualisieren
-python3 git_automation.py --tags
+# 3. Alle Branches aktualisieren
+python3 git_automation.py --push-all
 
-# 4. Alle Branches auf aktuellen Stand bringen
-python3 git_automation.py --branches
+# 4. Tag für neue Version erstellen
+python3 git_automation.py --tag v1.1.4
+
+# 5. Oder kompletter Release-Workflow
+python3 git_automation.py --release v1.1.4
 ```
 
 ## ⚠️ Wichtige Hinweise
