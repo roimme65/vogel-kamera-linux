@@ -320,18 +320,35 @@ class SecureGitAutomation:
     def add_key_with_pexpect(self, ssh_key, passphrase):
         """SSH-Key mit pexpect hinzufügen"""
         try:
-            child = pexpect.spawn(f'ssh-add {ssh_key}')
-            child.expect('Enter passphrase.*:')
-            child.sendline(passphrase)
-            child.expect(pexpect.EOF)
-            child.close()
-            return child.exitstatus == 0
-        except Exception:
+            print(f"🔑 Verwende pexpect für SSH-Key: {ssh_key}")
+            child = pexpect.spawn(f'ssh-add {ssh_key}', env=os.environ.copy())
+            child.logfile_read = sys.stdout.buffer  # Debug output
+            
+            # Warte auf Passphrase-Eingabeaufforderung
+            index = child.expect(['Enter passphrase.*:', 'passphrase.*:', 'Bad passphrase', pexpect.EOF, pexpect.TIMEOUT], timeout=10)
+            
+            if index in [0, 1]:  # Passphrase erwartet
+                print("🔐 Sende Passphrase...")
+                child.sendline(passphrase)
+                child.expect(pexpect.EOF, timeout=10)
+                child.close()
+                success = child.exitstatus == 0
+                print(f"✅ pexpect Ergebnis: {success}")
+                return success
+            else:
+                print(f"❌ Unerwartete pexpect-Antwort: Index {index}")
+                child.close()
+                return False
+                
+        except Exception as e:
+            print(f"❌ pexpect Fehler: {e}")
             return False
     
     def add_key_with_askpass(self, ssh_key, passphrase):
         """SSH-Key mit SSH_ASKPASS hinzufügen"""
         try:
+            print(f"🔑 Verwende SSH_ASKPASS für SSH-Key: {ssh_key}")
+            
             # Temporäres SSH_ASKPASS Skript erstellen
             askpass_script = self.automation_path / "temp_askpass.sh"
             with open(askpass_script, 'w') as f:
@@ -341,41 +358,60 @@ class SecureGitAutomation:
             
             env = os.environ.copy()
             env['SSH_ASKPASS'] = str(askpass_script)
-            env['DISPLAY'] = ':0'  # Dummy Display
+            env['SSH_ASKPASS_REQUIRE'] = 'force'  # Force SSH_ASKPASS usage
+            env['DISPLAY'] = ''  # Kein Display verfügbar
+            
+            print(f"🔐 SSH_ASKPASS Script: {askpass_script}")
             
             result = subprocess.run(
-                f'ssh-add {ssh_key}',
-                shell=True,
+                ['ssh-add', ssh_key],
                 env=env,
                 capture_output=True,
                 text=True,
-                timeout=30
+                timeout=30,
+                stdin=subprocess.DEVNULL  # Keine stdin verfügbar
             )
             
             # Cleanup
             askpass_script.unlink(missing_ok=True)
             
-            return result.returncode == 0
+            success = result.returncode == 0
+            print(f"✅ SSH_ASKPASS Ergebnis: {success}")
+            if not success:
+                print(f"❌ SSH_ASKPASS Fehler: {result.stderr}")
             
-        except Exception:
+            return success
+            
+        except Exception as e:
+            print(f"❌ SSH_ASKPASS Fehler: {e}")
             return False
     
     def add_key_with_stdin(self, ssh_key, passphrase):
         """SSH-Key mit stdin pipe hinzufügen"""
         try:
+            print(f"🔑 Verwende stdin für SSH-Key: {ssh_key}")
+            
             process = subprocess.Popen(
-                f'ssh-add {ssh_key}',
-                shell=True,
+                ['ssh-add', ssh_key],
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                text=True
+                text=True,
+                env=os.environ.copy()
             )
             
+            print("🔐 Sende Passphrase über stdin...")
             stdout, stderr = process.communicate(input=passphrase + '\n', timeout=30)
-            return process.returncode == 0
             
-        except Exception:
+            success = process.returncode == 0
+            print(f"✅ stdin Ergebnis: {success}")
+            if not success:
+                print(f"❌ stdin Fehler: {stderr}")
+                
+            return success
+            
+        except Exception as e:
+            print(f"❌ stdin Fehler: {e}")
             return False
 
 def main():
