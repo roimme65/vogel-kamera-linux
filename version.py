@@ -13,14 +13,14 @@ RELEASE_TYPE = "patch"  # major, minor, patch
 
 # Build Information
 BUILD_NUMBER = "20250924"
-GIT_TAG = "v1.1.3"
+GIT_TAG = "v1.1.4"
 
 # Feature Flags
 FEATURES = {
     "ai_detection": True,
     "audio_recording": True,
     "slow_motion": True,
-    "github_discussions": True,  # New in v1.1.3
+    "github_discussions": True,  # Since v1.1.3
     "github_templates": True,  # New in v1.1.2
     "wiki_documentation": True,  # New in v1.1.1
     "web_interface": False,  # Planned for v1.3.0

@@ -12,7 +12,7 @@ __license__ = "MIT"
 REQUIRED_PYTHON = "3.8"
 SUPPORTED_OS = ["Linux", "Raspberry Pi OS"]
 
-# Release Information (v1.1.3)
+# Release Information (v1.1.4)
 RELEASE_FEATURES = [
     "GitHub Discussions Integration",
     "Community & Diskussionen Bereich", 

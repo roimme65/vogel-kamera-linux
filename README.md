@@ -1,6 +1,6 @@
 # 🐦 Vogel-Kamera-Linux
 
-[![Version](https://img.shields.io/badge/Version-v1.1.3-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.3)
+[![Version](https://img.shields.io/badge/Version-v1.1.4-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.4)
 [![GitHub Issues](https://img.shields.io/github/issues/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/issues)
 [![GitHub PRs](https://img.shields.io/github/issues-pr/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/pulls)
 [![License](https://img.shields.io/github/license/roimme65/vogel-kamera-linux)](LICENSE)
@@ -152,7 +152,7 @@ python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul
 ### 4. Version prüfen
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
-# Ausgabe: Vogel-Kamera-Linux v1.1.3
+# Ausgabe: Vogel-Kamera-Linux v1.1.4
 ```
 
 ### Basis-Aufnahme
@@ -380,6 +380,6 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.1.3
+- **Aktuelle Version:** v1.1.4
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases) | [Tags](../../tags)
