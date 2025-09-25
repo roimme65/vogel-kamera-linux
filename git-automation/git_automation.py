@@ -474,13 +474,13 @@ Beispiele:
         print("✅ Git-Automation erfolgreich initialisiert")
         
         if args.status:
-            # Git Status anzeigen
-            success, output = automation.run_command("git status")
+            # Git Status anzeigen (vom Repository-Root)
+            success, output = automation.run_command("git status", cwd=automation.repo_path)
             print(f"\n📊 Git Status:\n{output}")
             
         elif args.push:
             # Aktuellen Branch pushen
-            success, current_branch = automation.run_command("git branch --show-current")
+            success, current_branch = automation.run_command("git branch --show-current", cwd=automation.repo_path)
             branch = args.branch or current_branch.strip()
             
             push_cmd = f"git push{'f' if args.force else ''} origin {branch}"
@@ -497,7 +497,7 @@ Beispiele:
             print("🚀 Push alle Branches...")
             push_cmd = f"git push{'f' if args.force else ''} --all origin"
             
-            success, output = automation.run_command(push_cmd)
+            success, output = automation.run_command(push_cmd, cwd=automation.repo_path)
             if success:
                 print("✅ Alle Branches erfolgreich gepusht")
             else:
@@ -508,9 +508,9 @@ Beispiele:
             version = args.tag
             print(f"🏷️ Erstelle Tag '{version}'...")
             
-            # Tag erstellen
+            # Tag erstellen (vom Repository-Root)
             tag_cmd = f"git tag -a {version} -m 'Release {version}'"
-            success, output = automation.run_command(tag_cmd)
+            success, output = automation.run_command(tag_cmd, cwd=automation.repo_path)
             
             if success:
                 print(f"✅ Tag '{version}' erstellt")
@@ -534,10 +534,10 @@ Beispiele:
             print(f"🚀 Vollständiger Release-Workflow für '{version}'...")
             
             # 1. Add und Commit alle Änderungen
-            success, status = automation.run_command("git status --porcelain")
+            success, status = automation.run_command("git status --porcelain", cwd=automation.repo_path)
             if status.strip():
                 print("📦 Füge Änderungen hinzu...")
-                automation.run_command("git add .")
+                automation.run_command("git add .", cwd=automation.repo_path)
                 
                 commit_msg = f"🔖 Release {version}"
                 success, output = automation.run_command(f'git commit -m "{commit_msg}"')
@@ -549,11 +549,11 @@ Beispiele:
             
             # 2. Push aktuellen Branch
             if not args.no_push:
-                success, current_branch = automation.run_command("git branch --show-current")
+                success, current_branch = automation.run_command("git branch --show-current", cwd=automation.repo_path)
                 branch = current_branch.strip()
                 
                 print(f"🚀 Push Branch '{branch}'...")
-                success, output = automation.run_command(f"git push origin {branch}")
+                success, output = automation.run_command(f"git push origin {branch}", cwd=automation.repo_path)
                 if success:
                     print(f"✅ Branch '{branch}' gepusht")
                 else:
@@ -562,7 +562,7 @@ Beispiele:
             
             # 3. Tag erstellen und pushen
             print(f"🏷️ Erstelle Tag '{version}'...")
-            success, output = automation.run_command(f"git tag -a {version} -m 'Release {version}'")
+            success, output = automation.run_command(f"git tag -a {version} -m 'Release {version}'", cwd=automation.repo_path)
             
             if success:
                 print(f"✅ Tag '{version}' erstellt")
@@ -584,17 +584,17 @@ Beispiele:
             commit_msg = args.commit
             print(f"📝 Add, Commit und Push: '{commit_msg}'")
             
-            # Add all changes
-            automation.run_command("git add .")
+            # Add all changes (vom Repository-Root)
+            automation.run_command("git add .", cwd=automation.repo_path)
             
-            # Commit
-            success, output = automation.run_command(f'git commit -m "{commit_msg}"')
+            # Commit (vom Repository-Root)
+            success, output = automation.run_command(f'git commit -m "{commit_msg}"', cwd=automation.repo_path)
             if success:
                 print(f"✅ Commit: {commit_msg}")
                 
                 if not args.no_push:
-                    # Push
-                    success, output = automation.run_command("git push")
+                    # Push (vom Repository-Root)
+                    success, output = automation.run_command("git push", cwd=automation.repo_path)
                     if success:
                         print("✅ Push erfolgreich!")
                     else:
