@@ -102,6 +102,12 @@ vogel-kamera-linux/
 │   ├── qr-subscribe.png                                          # Abonnieren QR-Code
 │   ├── generate_qr_codes.py                                      # QR-Code Generator
 │   └── QR-CODE-ANLEITUNG.md                                      # QR-Code Dokumentation
+├── git-automation/                                               # 🔐 Git-Automatisierung
+│   ├── git_automation.py                                         # Sichere Git-Operationen
+│   ├── setup_ssh_credentials.py                                  # SSH-Credentials Setup
+│   ├── test_*.py                                                 # Test-Suite
+│   ├── .git_secrets_encrypted.json                              # Verschlüsselte Secrets
+│   └── README.md                                                 # Git-Automation Dokumentation
 └── python-skripte/
     ├── config.py                                                      # Konfigurationssystem
     ├── __version__.py                                                  # Versionsverwaltung
@@ -185,6 +191,45 @@ python ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py \
 | `--fps` | Bildrate | 15 | 1-60 |
 | `--cam` | Kamera-ID | 1 | 0, 1 |
 | `--roi` | Region of Interest | - | x,y,w,h |
+
+## 🔐 Git-Automatisierung
+
+Das Projekt bietet jetzt eine **sichere Git-Automatisierung** für entwickelnde Beitragende:
+
+### ✨ Features
+- **🔑 Verschlüsselte SSH-Credentials:** AES-256-CBC mit Master-Password
+- **🚀 Automatischer SSH-Agent:** Keine manuelle Passphrase-Eingabe
+- **🛡️ Sichere Speicherung:** PBKDF2 Key-Derivation mit 100.000 Iterationen
+- **🧪 Umfassende Tests:** Automatisierte Validierung aller Komponenten
+
+### 🚀 Schnellstart Git-Automation
+```bash
+cd git-automation/
+
+# Abhängigkeiten installieren
+pip install -r git_automation_requirements.txt
+
+# SSH-Credentials einrichten (einmalig)
+python3 setup_ssh_credentials.py
+
+# System testen
+python3 test_full_automation.py
+```
+
+### 💻 Verwendung
+```python
+import sys
+sys.path.append('git-automation/')
+from git_automation import SecureGitAutomation
+
+# Automatisierte Git-Operationen
+automation = SecureGitAutomation()
+automation.run_command("git add .")
+automation.run_command('git commit -m "Automatischer Commit"')
+automation.run_command("git push")
+```
+
+> 📚 **Vollständige Dokumentation:** [`git-automation/README.md`](git-automation/README.md)
 
 ## ⚙️ SSH-Konfiguration
 

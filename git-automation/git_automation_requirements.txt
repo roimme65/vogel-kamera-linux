@@ -1,0 +1,3 @@
+# requirements für Git Automation mit Verschlüsselung
+cryptography>=41.0.0
+pexpect>=4.8.0

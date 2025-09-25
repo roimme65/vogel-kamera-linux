@@ -85,5 +85,12 @@ id_rsa*
 *.pem
 *.key
 
+# Git Automation Secrets (NIEMALS COMMITTEN!)
+git-automation/.git_secrets_encrypted.json
+git-automation/temp_askpass.sh
+.git_secrets.json
+.ssh_secrets.json
+.temp_ssh_expect.exp
+
 # Wiki-Content (für lokale Bearbeitung, nicht für Git)
 wiki-content/

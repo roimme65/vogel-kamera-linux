@@ -3,11 +3,11 @@
 Version information for Vogel-Kamera-Linux
 """
 
-__version__ = "1.1.3"
-__version_info__ = (1, 1, 3)
+__version__ = "1.1.4"
+__version_info__ = (1, 1, 4)
 
 # Release Information
-RELEASE_NAME = "GitHub Discussions Integration"
+RELEASE_NAME = "Sichere Git-Automatisierung"
 RELEASE_DATE = "2025-09-24"
 RELEASE_TYPE = "patch"  # major, minor, patch
 

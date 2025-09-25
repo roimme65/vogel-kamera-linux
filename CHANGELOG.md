@@ -12,6 +12,26 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
+## [1.1.4] - 2025-09-25
+### Hinzugefügt
+- **🔐 Sichere Git-Automatisierung:** Vollständig automatisierte Git-Operationen
+- **🗂️ Modulare Struktur:** Git-Automation in separaten `git-automation/` Ordner
+- **🔑 SSH-Credential-Management:** AES-256-CBC verschlüsselte SSH-Passphrases
+- **🚀 Automatischer SSH-Agent:** Keine manuelle Passphrase-Eingabe mehr
+- **🛡️ Master-Password-Schutz:** PBKDF2 Key-Derivation mit 100.000 Iterationen
+- **🧪 Umfassende Test-Suite:** Automatisierte Tests für SSH-Agent und Git-Integration
+- **📚 Detaillierte Dokumentation:** Setup-Anleitungen und Sicherheitsrichtlinien
+
+### Verbessert
+- **🏗️ Repository-Organisation:** Bessere Trennung von Features und Tools
+- **🔒 Sicherheitsstandards:** Eliminierung von Klartext-Credentials
+- **⚡ Developer Experience:** Einmalige Einrichtung für dauerhaft automatisierte Workflows
+
+### Sicherheit
+- **❌ Entfernt:** Unsichere `.git_secrets.json` mit Klartext-Passphrases
+- **✅ Hinzugefügt:** AES-verschlüsselte Credential-Speicherung
+- **🛡️ Verbessert:** `.gitignore` für neue Git-Automation Struktur
+
 ## [1.1.3] - 2025-09-24
 ### Hinzugefügt
 - **💬 GitHub Discussions Integration:** Community-Diskussionsbereich aktiviert
