@@ -3,7 +3,7 @@
 Versionsinformationen für Vogel-Kamera-Linux
 """
 
-__version__ = '1.1.4'
+__version__ = '1.1.5'
 __author__ = "Vogel-Kamera-Team"
 __description__ = "Ferngesteuerte Kameraüberwachung für Vogelhäuser mit KI-gestützter Objekterkennung"
 __license__ = "MIT"
@@ -12,7 +12,7 @@ __license__ = "MIT"
 REQUIRED_PYTHON = "3.8"
 SUPPORTED_OS = ["Linux", "Raspberry Pi OS"]
 
-# Release Information (v1.1.4)
+# Release Information (v1.1.5)
 RELEASE_FEATURES = [
     "GitHub Discussions Integration",
     "Community & Diskussionen Bereich", 

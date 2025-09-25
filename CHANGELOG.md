@@ -12,7 +12,21 @@ und dieses Projekt befolgt [Semantic Versioning](https://semver.org/lang/de/).
 - Erweiterte KI-Modelle (YOLOv9/v10)
 - Web-Dashboard für Remote-Monitoring
 
-## [1.1.4] - 2025-09-25
+## [1.1.5] - 2025-09-25
+### Hinzugefügt
+- **🎤 Veranstaltungsmanagement:** Neuer `veranstaltungen/` Ordner für Vorträge und Präsentationen
+- **🐧 LinuxDay.at Integration:** Vollständige Vorbereitung für LinuxDay.at 2025 Vortrag
+- **📱 QR-Code Generator:** Automatische Erstellung von QR-Codes für Veranstaltungslinks
+- **📋 Präsentationsstruktur:** Organisierte Ordner für slides/ und resources/
+- **📄 Veranstaltungsdokumentation:** README-Dateien mit eingebetteten QR-Codes
+- **🗓️ Event-Tracking:** Strukturiertes System für vergangene und zukünftige Veranstaltungen
+
+### Verbessert  
+- **📂 Repository-Organisation:** Bessere Strukturierung für öffentliche Präsentationen
+- **🔗 Externe Integration:** Direkte Links zu Veranstaltungswebsites
+- **📖 Dokumentation:** Erweiterte Anleitungen für Vortragsvorbereitung
+
+## [1.1.4] - 2025-09-24
 ### Hinzugefügt
 - **🔐 Sichere Git-Automatisierung:** Vollständig automatisierte Git-Operationen
 - **🗂️ Modulare Struktur:** Git-Automation in separaten `git-automation/` Ordner
