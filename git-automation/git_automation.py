@@ -139,6 +139,14 @@ class SecureGitAutomation:
                 self.secrets = decrypted_secrets
                 print("✅ Secrets erfolgreich entschlüsselt")
                 
+                # SSH-Agent automatisch konfigurieren
+                if 'ssh_key_path' in self.secrets and 'ssh_passphrase' in self.secrets:
+                    ssh_success, ssh_message = self.setup_ssh_agent()
+                    if ssh_success:
+                        print(f"🔑 {ssh_message}")
+                    else:
+                        print(f"⚠️  SSH-Agent-Setup: {ssh_message}")
+                
             else:
                 self.secrets = {}  # Leeres Dictionary wenn keine Secrets vorhanden
                 
