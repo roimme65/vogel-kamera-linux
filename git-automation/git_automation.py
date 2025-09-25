@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Git Automation Script mit verschlüsseltem SSH-Secret-Management
 Automatisiert Git-Operationen für Vogel-Kamera-Linux Projekt
@@ -483,7 +484,7 @@ Beispiele:
             success, current_branch = automation.run_command("git branch --show-current", cwd=automation.repo_path)
             branch = args.branch or current_branch.strip()
             
-            push_cmd = f"git push{'f' if args.force else ''} origin {branch}"
+            push_cmd = f"git push{' --force' if args.force else ''} origin {branch}"
             print(f"🚀 Push Branch '{branch}'...")
             
             success, output = automation.run_command(push_cmd)
@@ -495,7 +496,7 @@ Beispiele:
         elif args.push_all:
             # Alle Branches pushen
             print("🚀 Push alle Branches...")
-            push_cmd = f"git push{'f' if args.force else ''} --all origin"
+            push_cmd = f"git push{' --force' if args.force else ''} --all origin"
             
             success, output = automation.run_command(push_cmd, cwd=automation.repo_path)
             if success:
