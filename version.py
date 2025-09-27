@@ -3,16 +3,16 @@
 Version information for Vogel-Kamera-Linux
 """
 
-__version__ = "1.1.5"
-__version_info__ = (1, 1, 5)
+__version__ = "1.1.6"
+__version_info__ = (1, 1, 6)
 
 # Release Information
-RELEASE_NAME = "Veranstaltungsmanagement und LinuxDay.at Integration"
-RELEASE_DATE = "2025-09-25"
+RELEASE_NAME = "Wiki-Sync Reorganisation und venv-Standards"
+RELEASE_DATE = "2025-09-27"
 RELEASE_TYPE = "minor"  # major, minor, patch
 
 # Build Information
-BUILD_NUMBER = "20250925"
+BUILD_NUMBER = "20250927"
 GIT_TAG = "v1.1.5"
 
 # Feature Flags

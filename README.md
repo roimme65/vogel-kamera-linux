@@ -1,6 +1,6 @@
 # 🐦 Vogel-Kamera-Linux
 
-[![Version](https://img.shields.io/badge/Version-v1.1.5-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.5)
+[![Version](https://img.shields.io/badge/Version-v1.1.6-brightgreen)](https://github.com/roimme65/vogel-kamera-linux/releases/tag/v1.1.6)
 [![GitHub Issues](https://img.shields.io/github/issues/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/issues)
 [![GitHub PRs](https://img.shields.io/github/issues-pr/roimme65/vogel-kamera-linux)](https://github.com/roimme65/vogel-kamera-linux/pulls)
 [![License](https://img.shields.io/github/license/roimme65/vogel-kamera-linux)](LICENSE)
@@ -121,6 +121,9 @@ vogel-kamera-linux/
 │   ├── test_*.py                                                 # Test-Suite
 │   ├── .git_secrets_encrypted.json                              # Verschlüsselte Secrets
 │   └── README.md                                                 # Git-Automation Dokumentation
+├── wiki-sync/                                                   # 📚 Wiki-Synchronisation
+│   ├── wiki_sync.py                                             # Haupt-Wiki-Sync-Skript
+│   └── README.md                                                 # Wiki-Sync Dokumentation
 └── python-skripte/
     ├── config.py                                                      # Konfigurationssystem
     ├── __version__.py                                                  # Versionsverwaltung
@@ -169,7 +172,7 @@ python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul
 ### 4. Version prüfen
 ```bash
 python python-skripte/ai-had-kamera-remote-param-vogel-libcamera-single-AI-Modul.py --version
-# Ausgabe: Vogel-Kamera-Linux v1.1.5
+# Ausgabe: Vogel-Kamera-Linux v1.1.6
 ```
 
 ### Basis-Aufnahme
@@ -397,6 +400,6 @@ Alle Änderungen werden in [CHANGELOG.md](CHANGELOG.md) dokumentiert.
 
 ## 🔖 Versionen
 
-- **Aktuelle Version:** v1.1.5
+- **Aktuelle Version:** v1.1.6
 - **Entwicklungszweig:** `devel`
 - **Stabile Releases:** [GitHub Releases](../../releases) | [Tags](../../tags)
