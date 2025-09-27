@@ -65,7 +65,18 @@ Dieses Projekt ermöglicht die Fernsteuerung von Raspberry Pi-Kameras zur Überw
 - libcamera/rpicam-vid auf dem Raspberry Pi
 
 ### Python-Abhängigkeiten
+
+**Empfohlen: Virtuelle Umgebung verwenden**
 ```bash
+
+# Virtuelle Umgebung erstellen
+python3 -m venv venv
+
+# Virtuelle Umgebung aktivieren
+source venv/bin/activate  # Linux/macOS
+# oder: venv\Scripts\activate  # Windows
+
+# Abhängigkeiten installieren
 pip install -r requirements.txt
 ```
 
@@ -73,6 +84,8 @@ pip install -r requirements.txt
 ```bash
 pip install paramiko scp tqdm python-dotenv qrcode[pil]
 ```
+
+> 💡 **Hinweis:** Die Verwendung einer virtuellen Umgebung (`venv`) wird empfohlen, um Konflikte mit anderen Python-Projekten zu vermeiden.
 
 ### Konfiguration laden
 Die Skripte laden automatisch Konfigurationsdaten aus der `.env`-Datei:
@@ -125,6 +138,10 @@ vogel-kamera-linux/
 # Repository klonen
 git clone https://github.com/roimme65/vogel-kamera-linux.git
 cd vogel-kamera-linux
+
+# Virtuelle Umgebung erstellen (empfohlen)
+python3 -m venv venv
+source venv/bin/activate
 
 # Abhängigkeiten installieren
 pip install -r requirements.txt
