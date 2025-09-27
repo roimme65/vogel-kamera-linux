@@ -92,9 +92,8 @@ git-automation/temp_askpass.sh
 .ssh_secrets.json
 .temp_ssh_expect.exp
 
-# Wiki-Content (für lokale Bearbeitung, nicht für Git)
-# wiki-content/ ist jetzt ein Softlink - nicht ignorieren
-# wiki-content/
+# Wiki-Content (Softlink zum Wiki-Repository - nicht versionieren)
+wiki-content
 
 # Wiki-Sync-Skript ist im Repository für alle Nutzer verfügbar
 # wiki_sync.py - bewusst NICHT ignoriert
