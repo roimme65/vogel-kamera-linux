@@ -1,7 +1,7 @@
 # Release Notes - Version 1.1.6
 ## "Wiki-Sync Reorganisation"
 
-**Release Date:** 2024-12-19  
+**Release Date:** 2025-09-27  
 **Version:** 1.1.6  
 **Previous Version:** 1.1.5
 
