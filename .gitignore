@@ -93,4 +93,5 @@ git-automation/temp_askpass.sh
 .temp_ssh_expect.exp
 
 # Wiki-Content (für lokale Bearbeitung, nicht für Git)
-wiki-content/
+# wiki-content/ ist jetzt ein Softlink - nicht ignorieren
+# wiki-content/
