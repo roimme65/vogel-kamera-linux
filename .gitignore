@@ -95,3 +95,6 @@ git-automation/temp_askpass.sh
 # Wiki-Content (für lokale Bearbeitung, nicht für Git)
 # wiki-content/ ist jetzt ein Softlink - nicht ignorieren
 # wiki-content/
+
+# Wiki-Sync-Skript ist im Repository für alle Nutzer verfügbar
+# wiki_sync.py - bewusst NICHT ignoriert

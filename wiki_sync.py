@@ -86,13 +86,21 @@ def pull_wiki():
     return success
 
 if __name__ == "__main__":
+    print("🐦 Vogel-Kamera-Linux Wiki Sync v1.0")
+    print(f"📁 Working Directory: {os.getcwd()}")
+    
     if len(sys.argv) > 1:
         if sys.argv[1] == "pull":
             pull_wiki()
         elif sys.argv[1] == "sync" or sys.argv[1] == "push":
             sync_wiki()
         else:
-            print("Usage: python wiki_sync.py [pull|sync|push]")
+            print("❌ Unbekanntes Argument!")
+            print("Usage: python3 wiki_sync.py [pull|sync|push]")
+            print("  pull  - Wiki-Änderungen von GitHub holen")
+            print("  sync  - Lokale Änderungen zum GitHub Wiki pushen") 
+            print("  push  - Alias für sync")
+            print("  (ohne Argument) - Standard: sync")
     else:
         # Default: Sync
         sync_wiki()
